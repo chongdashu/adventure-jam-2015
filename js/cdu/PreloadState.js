@@ -46,9 +46,10 @@ var p = PreloadState.prototype;
 
         // Loading begins here.
         // --------------------
-        game.load.tilemap('level-1', 'assets/levels/level-1.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.image('background-test', 'assets/background-test.png');
+        game.load.tilemap('level-1-map', 'assets/levels/level-1.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.image('level-1', 'assets/levels/level-1.png');
         game.load.image('circle', 'assets/circle.png');
+        game.load.image('player', 'assets/player.png');
         
        
     };

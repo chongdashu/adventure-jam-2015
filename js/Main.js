@@ -1,7 +1,7 @@
 var game = null;
 
-var GLOBAL_GAME_WIDTH = 1024;
-var GLOBAL_GAME_HEIGHT = 768;
+var GLOBAL_GAME_WIDTH = 480;
+var GLOBAL_GAME_HEIGHT = 320;
 
 $(document).ready(function() {
     

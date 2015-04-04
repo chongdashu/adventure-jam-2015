@@ -17,23 +17,23 @@
          "objects":[
                 {
                  "height":0,
-                 "name":"floor0",
+                 "name":"",
                  "polyline":[
                         {
                          "x":0,
                          "y":0
                         }, 
                         {
-                         "x":633,
-                         "y":-1
+                         "x":317,
+                         "y":1
                         }, 
                         {
-                         "x":826,
-                         "y":176
+                         "x":392,
+                         "y":71
                         }, 
                         {
-                         "x":-194,
-                         "y":176
+                         "x":-79,
+                         "y":71
                         }, 
                         {
                          "x":-1,
@@ -43,11 +43,11 @@
                     {
 
                     },
-                 "type":"walkable",
+                 "type":"",
                  "visible":true,
                  "width":0,
-                 "x":195,
-                 "y":589
+                 "x":81,
+                 "y":245
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -61,24 +61,24 @@
     {
 
     },
- "tileheight":768,
+ "tileheight":320,
  "tilesets":[
         {
          "firstgid":1,
-         "image":"..\/background-test.png",
-         "imageheight":768,
-         "imagewidth":1024,
+         "image":"level-1.png",
+         "imageheight":320,
+         "imagewidth":480,
          "margin":0,
-         "name":"background-test",
+         "name":"level-1",
          "properties":
             {
 
             },
          "spacing":0,
-         "tileheight":768,
-         "tilewidth":1024
+         "tileheight":320,
+         "tilewidth":480
         }],
- "tilewidth":1024,
+ "tilewidth":480,
  "version":1,
  "width":1
 }
