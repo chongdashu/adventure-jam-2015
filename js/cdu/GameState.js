@@ -136,12 +136,13 @@ var p = GameState.prototype;
         if (this.lastClickPoint) {
 
 
-            if (Phaser.Math.fuzzyEqual(this.player.x, this.lastClickPoint.x, 10) && Phaser.Math.fuzzyEqual(this.player.y+this.player.height/2, this.lastClickPoint.y, 10)) {
+            if (Phaser.Math.fuzzyEqual(this.player.x, this.lastClickPoint.x, 4) && Phaser.Math.fuzzyEqual(this.player.y+this.player.height/2, this.lastClickPoint.y, 4)) {
                 this.player.body.velocity.x = 0;
                 this.player.body.velocity.y = 0;
             }
         }
-        if (!walk.contains(screenPos[0], screenPos[1])){
+
+        if (!walk.contains(screenPos[0]+this.player.body.velocity.x/10, screenPos[1]+this.player.body.velocity.y/10)){
 
             this.player.body.velocity.x = 0;
             this.player.body.velocity.y = 0;
