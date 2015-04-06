@@ -50,6 +50,10 @@ var p = PreloadState.prototype;
         game.load.image('level-1', 'assets/levels/level-1.png');
         game.load.image('circle', 'assets/circle.png');
         game.load.image('player', 'assets/player.png');
+        game.load.image("door1_key", "assets/door1_key.png");
+        game.load.image("door1-closed", "assets/door1-closed.png");
+        game.load.image("door1-opened", "assets/door1-opened.png");
+        game.load.text('items-interactions', 'assets/json/items-interactions.json');
         
        
     };

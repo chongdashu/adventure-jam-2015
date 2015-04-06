@@ -13,11 +13,11 @@
         }, 
         {
          "height":1,
-         "name":"Object Layer 1",
+         "name":"Walkable",
          "objects":[
                 {
                  "height":0,
-                 "name":"",
+                 "name":"Floor",
                  "polyline":[
                         {
                          "x":0,
@@ -55,6 +55,56 @@
          "width":1,
          "x":0,
          "y":0
+        }, 
+        {
+         "height":1,
+         "name":"Hotspots",
+         "objects":[],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":1,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":1,
+         "name":"Items",
+         "objects":[
+                {
+                 "ellipse":true,
+                 "height":0,
+                 "name":"door1_key",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":61,
+                 "y":289
+                }, 
+                {
+                 "gid":2,
+                 "height":0,
+                 "name":"door1",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":421,
+                 "y":292
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":1,
+         "x":0,
+         "y":0
         }],
  "orientation":"orthogonal",
  "properties":
@@ -77,6 +127,21 @@
          "spacing":0,
          "tileheight":320,
          "tilewidth":480
+        }, 
+        {
+         "firstgid":2,
+         "image":"..\/door1-closed.png",
+         "imageheight":115,
+         "imagewidth":34,
+         "margin":0,
+         "name":"door1-closed",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":115,
+         "tilewidth":34
         }],
  "tilewidth":480,
  "version":1,

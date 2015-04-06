@@ -26,6 +26,10 @@ var p = GameState.prototype;
     // ------
     p.polygons = [];
     p.lastClickPoint = null;
+
+    // Items
+    // -----
+    p.items = {};
        
     // @phaser
     p.preload = function() {
@@ -44,6 +48,8 @@ var p = GameState.prototype;
     p.create = function() {
         console.log("[GameState], create()");
 
+        this.createItemInteractions();
+
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         var map = game.add.tilemap('level-1-map');
@@ -61,7 +67,7 @@ var p = GameState.prototype;
         this.polygonBitmap.BlendMode = Phaser.blendModes.MULTIPLY;
         
         this.createPolygonsFromMap(map);
-
+        this.createItemsFromMap(map);
 
         this.player = this.game.add.sprite(0,100,"player");
         this.player.anchor.set(0.5);
@@ -73,6 +79,11 @@ var p = GameState.prototype;
 
     };
 
+    p.createItemInteractions = function() {
+        this.itemsInteractions = JSON.parse(game.cache.getText('items-interactions'));
+        console.log("itemsInteractions=%o", this.itemsInteractions);
+    };
+
     p.movePlayer = function() {
         console.log(this.game.input.activePointer.x, this.game.input.activePointer.y);
         console.log(this.polygons[0]);
@@ -81,13 +92,52 @@ var p = GameState.prototype;
         var worldPos = this.screenToWorld(this.game.input.activePointer.x, this.game.input.activePointer.y);
 
         this.lastClickPoint = new Phaser.Point(worldPos[0], worldPos[1]);
-        game.physics.arcade.moveToXY(this.player, this.lastClickPoint.x, this.lastClickPoint.y-this.player.height/2);
+        game.physics.arcade.moveToXY(this.player, this.lastClickPoint.x, this.lastClickPoint.y-this.player.height/2, 150);
         // game.physics.arcade.moveToXY(this.player, -50, 100, 100);
     };
 
+    p.createItemsFromMap = function(map) {
+        console.log("[GameState] createItemsFromMap()");
+        console.log("--------------------------------");
+        var objects = map.objects["Items"];
+        for (var i=0; i < objects.length; i++) {
+            var object = objects[i];
+            var itemInfo = this.getItemInfo(object.name);
+            console.log("i=%s, object=%o, itemInfo=%o", i, object, itemInfo);
+
+            var x = object.x - (GLOBAL_GAME_WIDTH/2) ;
+            var y = object.y - (GLOBAL_GAME_HEIGHT/2);
+            var item = this.add.sprite(x, y, itemInfo.image);
+            item.y -= item.height/2;
+            item.x += item.width/2;
+            item.anchor.set(0.5);
+            this.physics.arcade.enable(item);
+
+            item.itemInfo = itemInfo;
+            item.mapInfo = object;
+
+
+            this.items["door1"] = item;
+
+
+        }
+    };
+
+
+    p.getItemInfo = function(id) {
+        console.log("[GameState] getItemInfo(%s)", id);
+        console.log("--------------------------------");
+        for (var i=0; i < this.itemsInteractions.items.length; i++) {
+            var item = this.itemsInteractions.items[i];
+            if (item.id == id) {
+                return item;
+            }
+
+        }
+    };
+
     p.createPolygonsFromMap = function(map) {
-        console.log(map.objects);
-        var objects = map.objects["Object Layer 1"];
+        var objects = map.objects["Walkable"];
         for (var i=0; i < objects.length; i++) {
             var object = objects[i];
             
@@ -165,6 +215,8 @@ var p = GameState.prototype;
         // game.debug.inputInfo(16, 16);
         // game.debug.bodyInfo(this.player, 16, 160);
         // game.debug.body(this.player);
+        // game.debug.bodyInfo(this.items["door1"], 16, 160);
+        // game.debug.body(this.items["door1"]);
     };
 
     

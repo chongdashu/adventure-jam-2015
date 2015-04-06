@@ -2,6 +2,7 @@
  "items":[
     {
         "id" : "door1_key",
+        "image" : "door1_key",
         "isInventory" : true,
         "currentState" : "default",
         "states" : [
@@ -12,10 +13,16 @@
         "id" : "door1",
         "isInventory" : false,
         "currentState" : "closed",
+        "image" : "door1-closed",
         "states" : [
             "closed",
             "opened"
+        ],
+        "stateImages" : [
+            "door1-closed",
+            "door1-opened"
         ]
+        
     }
  ],
  "interactions" : [
