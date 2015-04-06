@@ -68,6 +68,9 @@ var p = GameState.prototype;
         this.physics.arcade.enable(this.player);
         this.input.onDown.add(this.movePlayer, this);
 
+        var text = this.game.add.text(0,0, "I can't use these things together.", {font: "12pt OneSize", fill: "#2878b9", align: "center", strokeThickness : 3});
+        text.anchor.set(0.5);
+
     };
 
     p.movePlayer = function() {
@@ -159,9 +162,9 @@ var p = GameState.prototype;
     };
 
     p.render = function() {
-        game.debug.inputInfo(16, 16);
-        game.debug.bodyInfo(this.player, 16, 160);
-        game.debug.body(this.player);
+        // game.debug.inputInfo(16, 16);
+        // game.debug.bodyInfo(this.player, 16, 160);
+        // game.debug.body(this.player);
     };
 
     

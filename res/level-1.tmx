@@ -8,9 +8,11 @@
    eJxjZGBgAAAACAAC
   </data>
  </layer>
- <objectgroup name="Object Layer 1" width="1" height="1">
-  <object x="81" y="245">
+ <objectgroup name="Walkable" width="1" height="1">
+  <object name="Floor" x="81" y="245">
    <polyline points="0,0 317,1 392,71 -79,71 -1,-1"/>
   </object>
  </objectgroup>
+ <objectgroup name="Hotspots" width="1" height="1"/>
+ <objectgroup name="Items" width="1" height="1"/>
 </map>

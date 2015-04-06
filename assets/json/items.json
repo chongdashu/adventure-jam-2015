@@ -1,0 +1,39 @@
+{ 
+ "items":[
+    {
+        "id" : "door1_key",
+        "isInventory" : true,
+        "currentState" : "default",
+        "states" : [
+            "default"
+        ]
+    },
+    {
+        "id" : "door1",
+        "isInventory" : false,
+        "currentState" : "closed",
+        "states" : [
+            "closed",
+            "opened"
+        ]
+    }
+ ],
+ "interactions" : [
+    {
+        "type" : "use_item_on_target_item",
+        "preconditions" : {
+            "target_item" : "door1",
+            "target_item_state" : "closed",
+            "use_item" : "door1_key",
+            "use_item_state" : "default"
+        },
+        "postconditions" : {
+            "target_item_state" : "opened",
+            "use_item_state" : "default",
+            "use_item_remove" : true,
+            "target_item_remove" : false
+        }
+        
+    }
+ ]       
+}
