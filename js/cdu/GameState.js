@@ -48,7 +48,9 @@ var p = GameState.prototype;
     p.create = function() {
         console.log("[GameState], create()");
 
+        this.createMouseCaptures();
         this.createItemInteractions();
+
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -72,16 +74,32 @@ var p = GameState.prototype;
         this.player = this.game.add.sprite(0,100,"player");
         this.player.anchor.set(0.5);
         this.physics.arcade.enable(this.player);
-        this.input.onDown.add(this.movePlayer, this);
+        this.input.onDown.add(this.onClickDown, this);
 
         var text = this.game.add.text(0,0, "I can't use these things together.", {font: "12pt OneSize", fill: "#2878b9", align: "center", strokeThickness : 3});
         text.anchor.set(0.5);
 
     };
 
+    p.createMouseCaptures = function() {
+        this.game.input.mouse.enabled = true;
+        // this.game.input.mouse.capture = true;
+        game.canvas.oncontextmenu = function (e) { e.preventDefault(); };
+    };
+
     p.createItemInteractions = function() {
         this.itemsInteractions = JSON.parse(game.cache.getText('items-interactions'));
         console.log("itemsInteractions=%o", this.itemsInteractions);
+    };
+
+    p.onClickDown = function(e) {
+        if (e.button == Phaser.Mouse.LEFT_BUTTON) {
+            movePlayer();
+        }
+        else {
+            console.log("action.");
+        }
+        
     };
 
     p.movePlayer = function() {
